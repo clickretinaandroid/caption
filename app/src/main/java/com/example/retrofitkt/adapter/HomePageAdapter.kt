@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.example.retrofitkt.activity.CaptionView
 import com.example.retrofitkt.R
 import com.example.retrofitkt.modelClass.Captions
@@ -40,6 +41,7 @@ class HomePageAdapter(private val context: Context, private val captionsList: Li
             Captions?.let {
                 itemView.tvtext.text = Captions.title
                 s[pos] = Captions.url
+
             }
         }
     }
