@@ -1,3 +1,16 @@
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/'}
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.4, 0.99.99]'
+    }
+}
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
+repositories {
+    maven { url 'https://maven.google.com' }
+}
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -8,12 +21,19 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
     defaultConfig {
+        manifestPlaceholders = [
+                onesignal_app_id: '73edfaf4-f00e-4ac9-9433-a5a4e9bc6d6c',
+                // Project number pulled from dashboard, local value is ignored.
+                onesignal_google_project_number: 'REMOTE'
+        ]
         applicationId "com.example.retrofitkt"
         minSdkVersion 25
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
     }
     buildTypes {
         release {
@@ -38,4 +58,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.airbnb.android:lottie:3.2.2'
+    implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    implementation 'com.onesignal:OneSignal:[3.11.2, 3.99.99]'
 }

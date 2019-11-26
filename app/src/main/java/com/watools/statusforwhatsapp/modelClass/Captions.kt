@@ -1,4 +1,4 @@
-package com.example.retrofitkt.modelClass
+package com.watools.statusforwhatsapp.modelClass
 
 data class Captions(
     var userId: String,

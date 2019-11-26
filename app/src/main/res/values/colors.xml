@@ -4,17 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="blue">#211BD8</color>
-
-    <color name="shadow_light">#f8f8f8</color>
-
-
-    <color name="primaryColor">#FFC107</color>
-    <color name="primaryColorDark">#FFA000</color>
-    <color name="backgroundColor">#fcfcfc</color>
-    <color name="lightGrayLine">#ededed</color>
-    <color name="deepPurple">#7c4dff</color>
-    <color name="materialYellow">#ffb300</color>
-    <color name="materialGreen">#00bfa5</color>
-    <color name="pinkAccent">#ff4081</color>
-    <color name="rectback">#4D4D4D</color>
+    <color name="shadowLight">#f8f8f8</color>
+    <color name="lightGray">#4D4D4D</color>
 </resources>

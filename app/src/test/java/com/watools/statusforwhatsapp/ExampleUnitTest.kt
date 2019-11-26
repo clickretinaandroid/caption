@@ -1,4 +1,4 @@
-package com.example.retrofitkt
+package com.watools.statusforwhatsapp
 
 import org.junit.Test
 

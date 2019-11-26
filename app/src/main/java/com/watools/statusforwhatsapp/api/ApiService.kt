@@ -1,7 +1,7 @@
-package com.example.retrofitkt.api
+package com.watools.statusforwhatsapp.api
 
-import com.example.retrofitkt.modelClass.Data
-import com.example.retrofitkt.modelClass.Captions
+import com.watools.statusforwhatsapp.modelClass.Data
+import com.watools.statusforwhatsapp.modelClass.Captions
 import retrofit2.Call
 import retrofit2.http.GET
 

@@ -1,4 +1,4 @@
-package com.example.retrofitkt
+package com.watools.statusforwhatsapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
