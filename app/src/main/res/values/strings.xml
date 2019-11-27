@@ -7,12 +7,10 @@
     <string name="adMob_Interstitial_testId">ca-app-pub-3940256099942544/6300978112</string>
 
 
-
-
-
-    //Changes
+    //To be Changed
     <string name="app_name">Captions For Whatsapp</string>
     <string name="adMob_banner_liveId">ca-app-pub-3940256099942544/6300978111</string>
     <string name="adMob_Interstitial_LiveId">ca-app-pub-3940256099942544/1033173712</string>
 
 </resources>
+
