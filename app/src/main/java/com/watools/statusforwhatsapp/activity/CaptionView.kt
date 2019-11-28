@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.gms.ads.AdListener
 import com.watools.statusforwhatsapp.R
-import com.watools.statusforwhatsapp.adapter.CaptionViewAdapter
+import com.watools.statusforwhatsapp.adapter.CaptionViewRvAdapter
 import com.watools.statusforwhatsapp.api.ApiService
 import com.watools.statusforwhatsapp.modelClass.Data
 import com.google.android.gms.ads.AdRequest
@@ -85,7 +85,7 @@ class CaptionView : AppCompatActivity() {
     private fun showData(userList: List<Data>) {
         captionRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@CaptionView)
-            adapter = CaptionViewAdapter(context, userList,mInterstitialAd)
+            adapter = CaptionViewRvAdapter(context, userList,mInterstitialAd)
         }
     }
 

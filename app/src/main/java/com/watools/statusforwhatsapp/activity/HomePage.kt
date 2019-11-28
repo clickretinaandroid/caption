@@ -14,7 +14,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.google.android.gms.ads.AdListener
 import com.watools.statusforwhatsapp.NetworkUtil
 import com.watools.statusforwhatsapp.R
-import com.watools.statusforwhatsapp.adapter.HomePageAdapter
+import com.watools.statusforwhatsapp.adapter.HomePageRvAdapter
 import com.watools.statusforwhatsapp.api.ApiService
 import com.watools.statusforwhatsapp.modelClass.Captions
 import com.google.android.gms.ads.AdRequest
@@ -81,7 +81,7 @@ class HomePage : AppCompatActivity() {
     private fun setToolbar() {
         setSupportActionBar(toolbar as Toolbar?)
         supportActionBar?.title = "   " + "Status For Whatsapp"
-        val drawable = resources.getDrawable(R.drawable.caption_icon)
+        val drawable = resources.getDrawable(R.drawable.icon_caption)
         val bitmap = (drawable as BitmapDrawable).bitmap
         val newDrawable: Drawable =
             BitmapDrawable(resources, Bitmap.createScaledBitmap(bitmap, 100, 100, true))
@@ -120,7 +120,7 @@ class HomePage : AppCompatActivity() {
     private fun showData(captionsList: List<Captions>) {
         captionTitleRecyclerView.apply {
             layoutManager = GridLayoutManager(context, 2)
-            adapter = HomePageAdapter(context, captionsList, mInterstitialAd)
+            adapter = HomePageRvAdapter(context, captionsList, mInterstitialAd)
         }
     }
 

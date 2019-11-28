@@ -13,12 +13,12 @@ import com.watools.statusforwhatsapp.activity.CaptionView
 import com.watools.statusforwhatsapp.modelClass.Captions
 import kotlinx.android.synthetic.main.view_caption_title.view.*
 
-class HomePageAdapter(
+class HomePageRvAdapter(
     private val context: Context,
     private val captionsList: List<Captions>,
     private var mInterstitialAd: InterstitialAd
 ) :
-    RecyclerView.Adapter<HomePageAdapter.MyViewHolder>() {
+    RecyclerView.Adapter<HomePageRvAdapter.MyViewHolder>() {
 
     var urlForNextActivity = arrayOfNulls<String?>(captionsList.size)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

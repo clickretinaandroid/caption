@@ -15,12 +15,12 @@ import com.watools.statusforwhatsapp.modelClass.Data
 import kotlinx.android.synthetic.main.caption_view.view.*
 
 
-class CaptionViewAdapter(
+class CaptionViewRvAdapter(
     private val context: Context,
     private val dataList: List<Data>,
     private val mInterstitialAd: InterstitialAd
 ) :
-    RecyclerView.Adapter<CaptionViewAdapter.MyViewHolder>() {
+    RecyclerView.Adapter<CaptionViewRvAdapter.MyViewHolder>() {
 
     var msg = arrayOfNulls<String?>(dataList.size)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
