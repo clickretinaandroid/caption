@@ -90,7 +90,7 @@ class HomePage : AppCompatActivity() {
 
     private fun retrofitConfiguration() {
         retrofit = Retrofit.Builder()
-            .baseUrl("https://abhi-debug.github.io/")
+            .baseUrl(getString(R.string.baseUrl))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

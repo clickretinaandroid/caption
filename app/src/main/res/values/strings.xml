@@ -12,5 +12,9 @@
     <string name="adMob_banner_liveId">ca-app-pub-3940256099942544/6300978111</string>
     <string name="adMob_Interstitial_LiveId">ca-app-pub-3940256099942544/1033173712</string>
 
+    //baseUrl Change
+    <string name="baseUrl">https://abhi-debug.github.io/</string>
+
+
 </resources>
 

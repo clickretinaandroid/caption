@@ -73,7 +73,7 @@ class CaptionView : AppCompatActivity() {
         adView.loadAd(adRequest)
 
         mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        mInterstitialAd.adUnitId = getString(R.string.adMob_Interstitial_LiveId)
         mInterstitialAd.loadAd(AdRequest.Builder().build())
         mInterstitialAd.adListener = object : AdListener() {
             override fun onAdClosed() {
