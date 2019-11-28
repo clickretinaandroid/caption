@@ -11,12 +11,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import com.airbnb.lottie.LottieAnimationView
+import com.google.android.gms.ads.AdListener
 import com.watools.statusforwhatsapp.NetworkUtil
 import com.watools.statusforwhatsapp.R
 import com.watools.statusforwhatsapp.adapter.HomePageAdapter
 import com.watools.statusforwhatsapp.api.ApiService
 import com.watools.statusforwhatsapp.modelClass.Captions
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import com.google.android.material.snackbar.Snackbar
 import com.onesignal.OneSignal
@@ -31,6 +33,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class HomePage : AppCompatActivity() {
     lateinit var animationView: LottieAnimationView
     private lateinit var retrofit: Retrofit
+    private lateinit var mInterstitialAd: InterstitialAd
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,12 +43,38 @@ class HomePage : AppCompatActivity() {
         adMobConfigure()
         setToolbar()
         retrofitConfiguration()
-        //checkForConnection()
+        // createNetworkConfigure()
 
         if (NetworkUtil.isNetworkAvailable(this@HomePage)) {
             fetchCaptionTitle()
         } else {
             showSnackBarDisconnected()
+        }
+    }
+
+    private fun initViews() {
+        animationView = findViewById(R.id.animation_view)
+    }
+
+    private fun oneSignalConfigure() {
+        OneSignal.startInit(this)
+            .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+            .unsubscribeWhenNotificationsAreDisabled(true)
+            .init()
+    }
+
+    private fun adMobConfigure() {
+        MobileAds.initialize(this) {}
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd.adUnitId = getString(R.string.adMob_Interstitial_LiveId)
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+        mInterstitialAd.adListener = object : AdListener() {
+            override fun onAdClosed() {
+                mInterstitialAd.loadAd(adRequest)
+            }
         }
     }
 
@@ -64,32 +93,6 @@ class HomePage : AppCompatActivity() {
             .baseUrl("https://abhi-debug.github.io/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    }
-
-    private fun initViews() {
-        animationView = findViewById(R.id.animation_view)
-        animationView.visibility = View.VISIBLE
-    }
-
-    private fun oneSignalConfigure() {
-        OneSignal.startInit(this)
-            .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-            .unsubscribeWhenNotificationsAreDisabled(true)
-            .init()
-    }
-
-    private fun adMobConfigure() {
-        MobileAds.initialize(this) {}
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
-
-    }
-
-    private fun showData(captionsList: List<Captions>) {
-        captionTitleRecyclerView.apply {
-            layoutManager = GridLayoutManager(context, 2)
-            adapter = HomePageAdapter(context, captionsList)
-        }
     }
 
     private fun fetchCaptionTitle() {
@@ -112,6 +115,13 @@ class HomePage : AppCompatActivity() {
                 showSnackBarDisconnected()
             }
         })
+    }
+
+    private fun showData(captionsList: List<Captions>) {
+        captionTitleRecyclerView.apply {
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = HomePageAdapter(context, captionsList, mInterstitialAd)
+        }
     }
 
     private fun showSnackBarDisconnected() {

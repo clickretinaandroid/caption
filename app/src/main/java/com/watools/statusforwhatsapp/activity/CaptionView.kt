@@ -7,11 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.lottie.LottieAnimationView
+import com.google.android.gms.ads.AdListener
 import com.watools.statusforwhatsapp.R
 import com.watools.statusforwhatsapp.adapter.CaptionViewAdapter
 import com.watools.statusforwhatsapp.api.ApiService
 import com.watools.statusforwhatsapp.modelClass.Data
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_caption_view.*
@@ -28,7 +30,7 @@ class CaptionView : AppCompatActivity() {
     private var myUrl: String? = ""
     lateinit var animationView: LottieAnimationView
     private lateinit var retrofit: Retrofit
-    lateinit var snackbar: Snackbar
+    private lateinit var mInterstitialAd: InterstitialAd
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,12 +71,21 @@ class CaptionView : AppCompatActivity() {
         MobileAds.initialize(this) {}
         val adRequest = AdRequest.Builder().build()
         adView.loadAd(adRequest)
+
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+        mInterstitialAd.adListener = object : AdListener() {
+            override fun onAdClosed() {
+                mInterstitialAd.loadAd(adRequest)
+            }
+        }
     }
 
     private fun showData(userList: List<Data>) {
         captionRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@CaptionView)
-            adapter = CaptionViewAdapter(context, userList)
+            adapter = CaptionViewAdapter(context, userList,mInterstitialAd)
         }
     }
 
