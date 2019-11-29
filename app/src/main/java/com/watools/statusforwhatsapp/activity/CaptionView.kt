@@ -8,18 +8,15 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.gms.ads.AdListener
-import com.watools.statusforwhatsapp.R
-import com.watools.statusforwhatsapp.adapter.CaptionViewRvAdapter
-import com.watools.statusforwhatsapp.api.ApiService
-import com.watools.statusforwhatsapp.modelClass.Data
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import com.google.android.material.snackbar.Snackbar
+import com.watools.statusforwhatsapp.R
+import com.watools.statusforwhatsapp.adapter.CaptionViewRvAdapter
+import com.watools.statusforwhatsapp.api.ApiService
+import com.watools.statusforwhatsapp.modelClass.Data
 import kotlinx.android.synthetic.main.activity_caption_view.*
-import kotlinx.android.synthetic.main.activity_caption_view.adView
-import kotlinx.android.synthetic.main.activity_caption_view.coordinator
-import kotlinx.android.synthetic.main.activity_caption_view.toolbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -58,7 +55,7 @@ class CaptionView : AppCompatActivity() {
 
     private fun retrofitConfiguration() {
         retrofit = Retrofit.Builder()
-            .baseUrl(myUrl)
+            .baseUrl("https://abhi-debug.github.io/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -92,7 +89,7 @@ class CaptionView : AppCompatActivity() {
     private fun loadCaptions() {
         captionRecyclerView.visibility = View.VISIBLE
         val api = retrofit.create(ApiService::class.java)
-        api.fetchData().enqueue(object : Callback<List<Data>> {
+        api.fetchData(myUrl).enqueue(object : Callback<List<Data>> {
             override fun onResponse(call: Call<List<Data>>, response: Response<List<Data>>) {
                 showData(response.body()!!)
                 if (response.code() == 200)

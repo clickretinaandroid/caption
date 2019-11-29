@@ -4,6 +4,7 @@ import com.watools.statusforwhatsapp.modelClass.Data
 import com.watools.statusforwhatsapp.modelClass.Captions
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface ApiService {
 
@@ -12,6 +13,6 @@ interface ApiService {
     fun fetchUser() : Call<List<Captions>>
 
 
-    @GET(" ")
-    fun fetchData(): Call<List<Data>>
+    @GET("Caption/{demo}.json")
+    fun fetchData(@Path("demo")postId:String?): Call<List<Data>>
 }
