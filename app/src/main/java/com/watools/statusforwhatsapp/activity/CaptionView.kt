@@ -106,7 +106,7 @@ class CaptionView : AppCompatActivity() {
     }
     private fun showSnackBarDisconnected() {
         val snackbar: Snackbar =
-            Snackbar.make(coordinator, "No Internet Available", Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(coordinator, "Something Went Wrong", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Retry") {
                     loadCaptions()
                 }
