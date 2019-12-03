@@ -20,7 +20,7 @@ class HomePageRvAdapter(
 ) :
     RecyclerView.Adapter<HomePageRvAdapter.MyViewHolder>() {
 
-    var urlForNextActivity = arrayOfNulls<String?>(captionsList.size)
+    var fileNameForNextActivity = arrayOfNulls<String?>(captionsList.size)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.view_caption_title, parent, false)
         return MyViewHolder(view)
@@ -41,7 +41,7 @@ class HomePageRvAdapter(
 
     private fun intentToCaptionActivity(position: Int) {
         val intent = Intent(context, CaptionView::class.java)
-        intent.putExtra("URL", urlForNextActivity[position])
+        intent.putExtra("fileName", fileNameForNextActivity[position])
         intent.putExtra("title", captionsList[position].title)
 
         context.startActivity(intent)
@@ -56,7 +56,7 @@ class HomePageRvAdapter(
         fun setData(captions: Captions?, pos: Int) {
             captions?.let {
                 itemView.tv_caption.text = captionsList[pos].title
-                urlForNextActivity[pos] = captionsList[pos].url
+                fileNameForNextActivity[pos] = captionsList[pos].fileName
             }
         }
     }

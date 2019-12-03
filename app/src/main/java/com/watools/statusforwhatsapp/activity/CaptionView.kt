@@ -27,7 +27,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class CaptionView : AppCompatActivity() {
-    private var myUrl: String? = ""
+    private var fileName: String? = ""
     private var captionTitle: String? = ""
     lateinit var animationView: LottieAnimationView
     private lateinit var retrofit: Retrofit
@@ -47,7 +47,7 @@ class CaptionView : AppCompatActivity() {
 
     private fun getMyUrl() {
         val intent = intent
-        myUrl = intent.getStringExtra("URL")
+        fileName = intent.getStringExtra("fileName")
         captionTitle = intent.getStringExtra("title")
     }
 
@@ -60,7 +60,7 @@ class CaptionView : AppCompatActivity() {
 
     private fun retrofitConfiguration() {
         retrofit = Retrofit.Builder()
-            .baseUrl(myUrl)
+            .baseUrl("https://abhi-debug.github.io/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -94,7 +94,7 @@ class CaptionView : AppCompatActivity() {
     private fun loadCaptions() {
         captionRecyclerView.visibility = View.VISIBLE
         val api = retrofit.create(ApiService::class.java)
-        api.fetchData().enqueue(object : Callback<List<Data>> {
+        api.fetchData(fileName).enqueue(object : Callback<List<Data>> {
             override fun onResponse(call: Call<List<Data>>, response: Response<List<Data>>) {
                 showData(response.body()!!)
                 if (response.code() == 200)
