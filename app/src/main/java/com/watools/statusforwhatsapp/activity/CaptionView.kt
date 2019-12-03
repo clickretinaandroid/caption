@@ -28,6 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class CaptionView : AppCompatActivity() {
     private var myUrl: String? = ""
+    private var captionTitle: String? = ""
     lateinit var animationView: LottieAnimationView
     private lateinit var retrofit: Retrofit
     private lateinit var mInterstitialAd: InterstitialAd
@@ -37,9 +38,9 @@ class CaptionView : AppCompatActivity() {
         setContentView(R.layout.activity_caption_view)
 
         initViews()
+        getMyUrl()
         adMobConfigure()
         setToolbar()
-        getMyUrl()
         retrofitConfiguration()
         loadCaptions()
     }
@@ -47,11 +48,12 @@ class CaptionView : AppCompatActivity() {
     private fun getMyUrl() {
         val intent = intent
         myUrl = intent.getStringExtra("URL")
+        captionTitle = intent.getStringExtra("title")
     }
 
     private fun setToolbar() {
         setSupportActionBar(toolbar as Toolbar?)
-        supportActionBar?.title = "Status for Whatsapp"
+        supportActionBar?.title = captionTitle
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
     }

@@ -21,13 +21,14 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
     defaultConfig {
+        multiDexEnabled true
         manifestPlaceholders = [
                 onesignal_app_id: '73edfaf4-f00e-4ac9-9433-a5a4e9bc6d6c',
                 // Project number pulled from dashboard, local value is ignored.
                 onesignal_google_project_number: 'REMOTE'
         ]
-        applicationId "com.example.retrofitkt"
-        minSdkVersion 25
+        applicationId "com.watools.statusforwhatsapp"
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"

@@ -42,6 +42,8 @@ class HomePageRvAdapter(
     private fun intentToCaptionActivity(position: Int) {
         val intent = Intent(context, CaptionView::class.java)
         intent.putExtra("URL", urlForNextActivity[position])
+        intent.putExtra("title", captionsList[position].title)
+
         context.startActivity(intent)
         mInterstitialAd.loadAd(AdRequest.Builder().build())
         if (mInterstitialAd.isLoaded) {
