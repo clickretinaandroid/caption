@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/coordinator"
-    tools:context=".activity.HomePage">
+    tools:context=".activity.HomePageActivity">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">

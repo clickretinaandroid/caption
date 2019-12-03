@@ -30,7 +30,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class HomePage : AppCompatActivity() {
+class HomePageActivity : AppCompatActivity() {
     lateinit var animationView: LottieAnimationView
     private lateinit var retrofit: Retrofit
     private lateinit var mInterstitialAd: InterstitialAd
@@ -45,7 +45,7 @@ class HomePage : AppCompatActivity() {
         retrofitConfiguration()
         // createNetworkConfigure()
 
-        if (NetworkUtil.isNetworkAvailable(this@HomePage)) {
+        if (NetworkUtil.isNetworkAvailable(this@HomePageActivity)) {
             fetchCaptionTitle()
         } else {
             showSnackBarDisconnected()

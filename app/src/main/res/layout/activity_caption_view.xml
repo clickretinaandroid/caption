@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:id="@+id/coordinator"
     android:layout_height="match_parent"
-    tools:context=".activity.CaptionView">
+    tools:context=".activity.CaptionViewActivity">
 
     <include
             android:id="@+id/toolbar"

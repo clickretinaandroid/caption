@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.watools.statusforwhatsapp.R
-import com.watools.statusforwhatsapp.activity.CaptionView
+import com.watools.statusforwhatsapp.activity.CaptionViewActivity
 import com.watools.statusforwhatsapp.modelClass.Captions
 import kotlinx.android.synthetic.main.view_caption_title.view.*
 
@@ -40,7 +40,7 @@ class HomePageRvAdapter(
     }
 
     private fun intentToCaptionActivity(position: Int) {
-        val intent = Intent(context, CaptionView::class.java)
+        val intent = Intent(context, CaptionViewActivity::class.java)
         intent.putExtra("fileName", fileNameForNextActivity[position])
         intent.putExtra("title", captionsList[position].title)
 

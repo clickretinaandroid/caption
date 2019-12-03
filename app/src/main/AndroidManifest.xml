@@ -13,12 +13,12 @@
         android:roundIcon="@drawable/icon_caption"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.watools.statusforwhatsapp.activity.CaptionView"
+        <activity android:name="com.watools.statusforwhatsapp.activity.CaptionViewActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName="com.watools.statusforwhatsapp.activity.HomePage"/>
+            android:parentActivityName="com.watools.statusforwhatsapp.activity.HomePageActivity"/>
 
 
-        <activity android:name="com.watools.statusforwhatsapp.activity.HomePage"
+        <activity android:name="com.watools.statusforwhatsapp.activity.HomePageActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -26,7 +26,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CaptionView : AppCompatActivity() {
+class CaptionViewActivity : AppCompatActivity() {
     private var fileName: String? = ""
     private var captionTitle: String? = ""
     lateinit var animationView: LottieAnimationView
@@ -86,7 +86,7 @@ class CaptionView : AppCompatActivity() {
 
     private fun showData(userList: List<Data>) {
         captionRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@CaptionView)
+            layoutManager = LinearLayoutManager(this@CaptionViewActivity)
             adapter = CaptionViewRvAdapter(context, userList,mInterstitialAd)
         }
     }
