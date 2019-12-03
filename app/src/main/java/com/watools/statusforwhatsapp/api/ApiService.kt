@@ -13,6 +13,6 @@ interface ApiService {
     fun fetchUser() : Call<List<Captions>>
 
 
-    @GET("Caption/{All}.json")
+    @GET("{All}.json")
     fun fetchData(@Path("All")postId:String?): Call<List<Data>>
 }

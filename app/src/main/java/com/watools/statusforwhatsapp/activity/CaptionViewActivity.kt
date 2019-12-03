@@ -60,7 +60,7 @@ class CaptionViewActivity : AppCompatActivity() {
 
     private fun retrofitConfiguration() {
         retrofit = Retrofit.Builder()
-            .baseUrl("https://abhi-debug.github.io/")
+            .baseUrl("https://abhi-debug.github.io/Caption/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
