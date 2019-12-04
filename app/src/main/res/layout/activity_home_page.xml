@@ -25,7 +25,7 @@
         android:textSize="40dp"
         android:layout_marginTop="30dp"
         android:textColor="@color/cardview_light_background"
-        android:text="Status For Whatsapp"/>
+        android:text="Status For WhatsApp"/>
 
     <include
         android:id="@+id/toolbar"
