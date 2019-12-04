@@ -41,7 +41,7 @@ class HomePageActivity : AppCompatActivity() {
         initViews()
         oneSignalConfigure()
         adMobConfigure()
-        setToolbar()
+       // setToolbar()
         retrofitConfiguration()
         // createNetworkConfigure()
 
@@ -78,7 +78,7 @@ class HomePageActivity : AppCompatActivity() {
         }
     }
 
-    private fun setToolbar() {
+   /* private fun setToolbar() {
         setSupportActionBar(toolbar as Toolbar?)
         supportActionBar?.title = "   " + "Status For Whatsapp"
         val drawable = resources.getDrawable(R.drawable.icon_caption)
@@ -87,7 +87,7 @@ class HomePageActivity : AppCompatActivity() {
             BitmapDrawable(resources, Bitmap.createScaledBitmap(bitmap, 100, 100, true))
         supportActionBar?.setLogo(newDrawable)
     }
-
+*/
     private fun retrofitConfiguration() {
         retrofit = Retrofit.Builder()
             .baseUrl(getString(R.string.baseUrl))

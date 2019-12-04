@@ -9,10 +9,28 @@
     tools:context=".activity.HomePageActivity">
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/cardview_shadow_end_color">
+
+    <ImageView
+         android:id="@+id/design"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/half_circle_design"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="40dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/cardview_light_background"
+        android:text="Status For Whatsapp"/>
+
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar"
+        android:visibility="invisible"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/captionTitleRecyclerView"
@@ -21,7 +39,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_below="@+id/toolbar"
+            android:layout_below="@+id/design"
+            android:layout_marginTop="-20dp"
             android:layout_above="@+id/adView"
             tools:layout_editor_absoluteY="-2dp" />
 
