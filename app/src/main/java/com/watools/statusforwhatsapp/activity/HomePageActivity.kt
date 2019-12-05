@@ -80,7 +80,7 @@ class HomePageActivity : AppCompatActivity() {
 
    /* private fun setToolbar() {
         setSupportActionBar(toolbar as Toolbar?)
-        supportActionBar?.title = "   " + "Status For Whatsapp"
+        supportActionBar?.title = "   " + "Status For WhatsApp"
         val drawable = resources.getDrawable(R.drawable.icon_caption)
         val bitmap = (drawable as BitmapDrawable).bitmap
         val newDrawable: Drawable =
