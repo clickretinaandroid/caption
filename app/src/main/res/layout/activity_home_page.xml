@@ -24,8 +24,8 @@
         android:gravity="center_horizontal"
         android:textSize="40dp"
         android:layout_marginTop="30dp"
-        android:textColor="@color/cardview_light_background"
-        android:text="Status For Whatsapp"/>
+        android:textColor="#fff"
+        android:text="Status For WhatsApp"/>
 
     <include
         android:id="@+id/toolbar"
@@ -34,13 +34,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/captionTitleRecyclerView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_centerInParent="true"
             android:layout_below="@+id/design"
-            android:layout_marginTop="-20dp"
+            android:layout_marginTop="-30dp"
             android:layout_above="@+id/adView"
             tools:layout_editor_absoluteY="-2dp" />
 
