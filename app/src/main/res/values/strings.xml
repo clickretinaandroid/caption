@@ -1,14 +1,13 @@
 <resources>
 
-
-
-
     <string name="adMob_banner_testId">ca-app-pub-3940256099942544/6300978111</string>
     <string name="adMob_Interstitial_testId">ca-app-pub-3940256099942544/6300978112</string>
 
-
-    //To be Changed
+    //App Name
     <string name="app_name">Status For WhatsApp</string>
+
+    //AdMob Ids
+    <string name="adMob_app_Id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="adMob_banner_liveId">ca-app-pub-3940256099942544/6300978111</string>
     <string name="adMob_Interstitial_LiveId">ca-app-pub-3940256099942544/1033173712</string>
 
